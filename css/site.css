@@ -1,8 +1,304 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu'), url(https://themes.googleusercontent.com/static/fonts/ubuntu/v4/_xyN3apAT_yRRDeqB3sPRg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Ubuntu Italic'), local('Ubuntu-Italic'), url(https://themes.googleusercontent.com/static/fonts/ubuntu/v4/kbP_6ONYVgE-bLa9ZRbvvvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(https://themes.googleusercontent.com/static/fonts/ubuntumono/v3/ViZhet7Ak-LRXZMXzuAfkYbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Ubuntu Mono Italic'), local('UbuntuMono-Italic'), url(https://themes.googleusercontent.com/static/fonts/ubuntumono/v3/KAKuHXAHZOeECOWAHsRKA9kZXW4sYc4BjuAIFc1SXII.woff) format('woff');
+}
+
 *
 {
+    box-sizing:border-box;
+    margin:0;padding:0;
 }
 
 body
 {
+    background-image:url(bg/tile.gif);
+    color:white;
+    font-family:Ubuntu;
 }
 
+#underlayer, #page, #overlayer
+{
+    position:fixed;
+    top:0;bottom:0;left:0;right:0;
+}
+#underlayer
+{
+    z-index:0;
+}
+#page
+{
+    position:relative;
+    z-index:100;
+    min-width:600px;
+}
+#overlayer
+{
+    z-index:10000;
+    display:none;
+    background-color:rgba(51,51,51,.75);/* IE 8- fails here */
+}
+
+header
+{
+  position:fixed;
+  top:0;right:0;left:0;
+  height:60px;
+  min-width:600px;
+  z-index:100;
+  background-color:#333;
+  
+  background: -moz-linear-gradient(top,  #555555 0%, #111111 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#555555), color-stop(100%,#111111)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #555555 0%,#111111 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #555555 0%,#111111 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #555555 0%,#111111 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #555555 0%,#111111 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#111111',GradientType=0 ); /* IE6-9 */
+
+
+  
+  box-shadow:0 7px 5px rgba(0,0,0,.75);
+  
+}
+
+main
+{
+  width:80%;
+  margin:7% auto;
+  margin-bottom:150px;
+  min-height:1000px;
+  min-width:600px;
+  
+  background-color:white;
+  background-image:url(bg/paper.jpg);
+  box-shadow:0 5px 5px 5px rgba(0,0,0,.75);
+  
+  color:#333;
+  text-align:justify;
+  padding:40px;
+  padding-bottom:100px;
+}
+
+footer
+{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  height:40px;
+  min-width:600px;
+  background-color:#333;
+  
+  background: -moz-linear-gradient(top,  #111111 0%, #555555 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#111111), color-stop(100%,#555555)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #111111 0%,#555555 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #111111 0%,#555555 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #111111 0%,#555555 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #111111 0%,#555555 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#555555',GradientType=0 ); /* IE6-9 */
+
+  box-shadow:0 -7px 5px rgba(0,0,0,.75);
+  
+  text-align:right;
+  font-size:12px;
+  line-height:40px;
+  padding-right:10%;
+}
+footer span
+{
+  color:#666;
+  font-style:italic;
+  font-size:10px;
+}
+
+
+/* ALL MAIN LAYOUT SHOULD BE COMPLETE */
+
+/* TYPOGRAPHY */
+
+ul,ol
+{
+  list-style-position:inside;
+  margin:30px;
+  margin-top:0;
+}
+p
+{
+  margin:10px;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+  color:#fa4f00;
+  -webkit-text-stroke:1px #A00;
+  text-shadow:3px 3px 2px rgba(0,0,0,.3);
+  margin-top:30px;
+}
+
+img.text
+{
+  width:33%;
+  margin:20px;
+  float:left;
+  
+  -webkit-transition:.5s ease all;
+  -moz-transition:.5s ease all;
+  -o-transition:.5s ease all;
+  transition:.5s ease all;
+  
+  border:3px solid #A00;
+  border-radius:10px;
+  box-shadow:5px 5px 3px rgba(0,0,0,.5);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  -ms-transform:rotate(5deg);
+  -o-transform:rotate(5deg);
+  transform:rotate(5deg);
+}
+img.text.right
+{
+  float:right;
+}
+img.text.right
+{
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  -ms-transform:rotate(-3deg);
+  -o-transform:rotate(-3deg);
+  transform:rotate(-3deg);
+}
+img.text.small
+{
+  width:15%;
+  min-width:150px;
+  background-color:transparent;
+  border:0;
+  box-shadow:none;
+  border-radius:0;
+  margin:0;
+  padding:20px;
+  
+  -webkit-transform:rotate(0);
+  -moz-transform:rotate(0);
+  -ms-transform:rotate(0);
+  -o-transform:rotate(0);
+  transform:rotate(0);
+}
+
+img.text:hover
+{
+  -webkit-transform:scale(2);
+  -webkit-trasform:rotate(0);
+  background-color:white;
+}
+
+a
+{
+  color:#0048ff;
+  text-decoration:none;
+}
+a:visited
+{
+  color:#555;
+  font-style: italic;
+}
+a:hover
+{
+  color:#0048ff;
+  text-decoration:underline;
+  text-shadow:0 0 1px #FFF;
+}
+a:active
+{
+  color:#ff6600;
+}
+
+pre
+{
+  background-color:#333;
+  background-color:rgba(0,0,0,.75);
+  color:white;
+  border:2px solid black;
+  border-radius:10px;
+  box-shadow:inset 5px 5px 3px rgba(0,0,0,.5);
+  margin:20px;
+  padding:20px 0;
+  
+  overflow:auto;
+  
+  font-family:Mono;
+}
+
+blockquote
+{
+  background-color:white;
+  color:#333;
+  border:2px solid #666;
+  border-radius:10px;
+  box-shadow:5px 5px 3px rgba(0,0,0,.5);
+  margin:20px;
+  padding:20px;
+}
+blockquote .quote::before
+{
+  content:"\201C";
+}
+blockquote .quote::after
+{
+  content:"\201D";
+}
+blockquote .sig
+{
+  float:right;
+  clear:left;
+  font-style:italic;
+}
+blockquote .sig:before
+{
+  content:"~ ";
+}
+
+section
+{
+  margin-top:50px;
+}
+section:first-of-type
+{
+  margin-top:0;
+}
+
+hr
+{
+  width:67%;
+  margin:30px auto;
+  margin-bottom:40px;
+}
+
+h1+hr,h2+hr,h3+hr,h4+hr,h5+hr,h6+hr
+{
+  width:75%;
+  margin:0;
+  margin-bottom:30px;
+  color:#fa4f00;
+  background-color:#fa4f00;
+  height:5px;
+}
